@@ -6,4 +6,4 @@
 
 <https://colab.research.google.com/github/IceWaterNotIce/VTC-TimeTable/blob/main/VTC_TimeTable.ipynb>
 
-https://www.youtube.com/watch?v=<o7NB8tTQygw>
+https://www.youtube.com/watch?v=o7NB8tTQygw
