@@ -177,9 +177,19 @@ for td_element in td_elements:
         start_time = start_time.replace(":", "")
         end_time = end_time.replace(":", "")
 
-        # Append "00" to represent seconds
-        start_time += "00"
-        end_time += "00"
+        # 將時間字符串轉換為datetime對象
+        time_obj = datetime.strptime(start_time, "%H%M")
+        # 減少8小時
+        time_obj -= timedelta(hours=8)
+        # 將結果轉換回時間字符串
+        start_time = time_obj.strftime("%H%M%S")
+
+        # 將時間字符串轉換為datetime對象
+        time_obj = datetime.strptime(end_time, "%H%M")
+        # 減少8小時
+        time_obj -= timedelta(hours=8)
+        # 將結果轉換回時間字符串
+        end_time = time_obj.strftime("%H%M%S")
 
         for int_WeekNum in lst_WeekNums:
             #print(int_WeekNum)
