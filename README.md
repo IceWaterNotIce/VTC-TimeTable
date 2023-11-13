@@ -5,3 +5,5 @@
 ## 使用 Google Colab 爬取課程時間表
 
 <https://colab.research.google.com/github/IceWaterNotIce/VTC-TimeTable/blob/main/VTC_TimeTable.ipynb>
+
+<https://youtu.be/o7NB8tTQygw?si=aQbWsbYGMs26_uIO>
