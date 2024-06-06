@@ -62,7 +62,11 @@ options = select.options
 last_option = options[-1]
 last_option.click()
 
-start_date = datetime.strptime(options[0].text[4:].split(" - ")[0], "%d-%b-%Y")
+# "01-Jan-2022 - 31-Dec-2022"
+start_date = datetime.strptime(options[0].text[4:].split(" - ")[0].replace(" ",""), "%d-%b-%Y")
+start_week = options[0].text[1:3]
+print(start_date)
+print(start_week)
 
 #print(start_date)
 input_btn_search = driver.find_element(By.ID, 'j_id_7:search')
@@ -192,7 +196,9 @@ for td_element in td_elements:
         end_time = time_obj.strftime("%H%M%S")
 
         for int_WeekNum in lst_WeekNums:
-            #print(int_WeekNum)
+            print(start_date)
+            int_WeekNum = int_WeekNum - int(start_week) + 1
+            print(str(get_formatted_date(start_date, int(int_WeekNum), int(lst_lesson_details[5]))))
             str_VEVENT = "BEGIN:VEVENT"\
                 + "\n" + "DTSTART:" + str(get_formatted_date(start_date, int(int_WeekNum), int(lst_lesson_details[5]))) + "T" + start_time + "Z"\
                 + "\n" + "DTEND:"   + str(get_formatted_date(start_date, int(int_WeekNum), int(lst_lesson_details[5]))) + "T" + end_time   + "Z"\
