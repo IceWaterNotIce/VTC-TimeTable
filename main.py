@@ -21,11 +21,12 @@ wait.until(EC.presence_of_element_located((By.TAG_NAME, "html")))
 
 Your_CNA = input("Your CNA:") # @param {type:"string"}
 Your_Password = input("Your Password:") # @param {type:"string"}
+
 #region 登入 VTC Portal
 
 input_text_userid = driver.find_element(By.NAME, "userid")
 input_text_password = driver.find_element(By.NAME, "password")
-input_btn_login = driver.find_element(By.ID, "submitBtn")
+input_btn_login = driver.find_element(By.ID, "loginBtn")
 
 
 input_text_userid.send_keys(Your_CNA)
@@ -65,6 +66,8 @@ last_option.click()
 # "01-Jan-2022 - 31-Dec-2022"
 start_date = datetime.strptime(options[0].text[4:].split(" - ")[0].replace(" ",""), "%d-%b-%Y")
 start_week = options[0].text[1:3]
+# only keep number in string start_week
+start_week = re.sub("\D", "", start_week)
 print(start_date)
 print(start_week)
 
