@@ -26,7 +26,7 @@ Your_Password = input("Your Password:") # @param {type:"string"}
 
 input_text_userid = driver.find_element(By.NAME, "userid")
 input_text_password = driver.find_element(By.NAME, "password")
-input_btn_login = driver.find_element(By.ID, "loginBtn")
+input_btn_login = driver.find_element(By.ID, "submitBtn")
 
 
 input_text_userid.send_keys(Your_CNA)
@@ -54,10 +54,19 @@ driver.execute_script("arguments[0].click();", img_TimeTable)
 # Wait for the page to finish loading
 time.sleep(2)
 
+# 
+selectyear = driver.find_element(By.XPATH, '//*[@id="j_id_7:academicYearSem"]')
+selecty = Select(selectyear)
+optionys = selecty.options
+last_optiony = optionys[-1]
+last_optiony.click()
+
+time.sleep(2)
+
 select_EndWeek = driver.find_element(By.ID, 'j_id_7:beanDateTo')
 
 # Create a Select object
-select = Select(select_EndWeek)
+select = Select(select_EndWeek)   
 # Select the last option
 options = select.options
 last_option = options[-1]
